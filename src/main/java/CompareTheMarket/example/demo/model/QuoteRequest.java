@@ -1,4 +1,4 @@
-package CompareTheMarket.example.demo.QuoteRequest;
+package CompareTheMarket.example.demo.model;
 
 public class QuoteRequest {
     private int age;

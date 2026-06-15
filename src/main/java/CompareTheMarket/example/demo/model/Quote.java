@@ -1,4 +1,4 @@
-package CompareTheMarket.example.demo.Quote;
+package CompareTheMarket.example.demo.model;
 
 public class Quote {
     private String provider;
