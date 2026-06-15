@@ -9,6 +9,8 @@ import CompareTheMarket.example.demo.model.QuoteRequest;
 import CompareTheMarket.example.demo.model.Quote;
 import CompareTheMarket.example.demo.service.QuoteService;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -22,7 +24,7 @@ public class QuoteController {
     }
 
     @PostMapping
-    public List<Quote> getQuotes(@RequestBody QuoteRequest request) {
+    public List<Quote> getQuotes(@Valid @RequestBody QuoteRequest request) {
         return quoteService.generateQuotes(request);
     }
 }
