@@ -6,16 +6,16 @@ import CompareTheMarket.example.demo.model.Quote;
 import CompareTheMarket.example.demo.model.QuoteRequest;
 
 @Service
-public class BudgetCoverProvider implements QuoteProvider {
-    
+public class SafeDriveProvider implements QuoteProvider {
+
     @Override
     public Quote generateQuote(QuoteRequest request) {
 
         double price =
-            400 +
-            (request.getVehicleValue() * 0.01) -
-            (request.getClaims() * 100);
+                550 +
+                (request.getVehicleValue() * 0.015) -
+                (request.getYearsDriving() * 10);
 
-        return new Quote("BudgetCover", price, 250);
+        return new Quote("SafeDrive", price, 150);
     }
 }
