@@ -1,4 +1,4 @@
-# 🧾 Compare The Market Clone (Spring Boot + Java)
+# Compare The Market Clone (Spring Boot + Java)
 
 A simplified full-stack insurance comparison platform inspired by Compare The Market.  
 Users can enter their details and receive real-time insurance quotes from multiple simulated providers, with support for extensible pricing strategies, asynchronous processing, and a RESTful backend API.
