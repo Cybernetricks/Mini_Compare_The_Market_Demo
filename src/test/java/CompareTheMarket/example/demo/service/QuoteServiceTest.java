@@ -17,7 +17,8 @@ public class QuoteServiceTest {
 
         List<QuoteProvider> providers = List.of(
             new BudgetCoverProvider(),
-            new SafeDriveProvider()
+            new SafeDriveProvider(),
+            new PremiumCoverProvider()
         );
 
         QuoteService quoteService = new QuoteService(providers);
@@ -26,7 +27,7 @@ public class QuoteServiceTest {
 
         List<Quote> quotes = quoteService.generateQuotes(request);
 
-        assertEquals(2, quotes.size());
+        assertEquals(3, quotes.size());
 
         assertTrue(
             quotes.stream()
@@ -37,6 +38,11 @@ public class QuoteServiceTest {
             quotes.stream()
                     .anyMatch(q ->
                             q.getProvider().equals("SafeDrive")));
+        
+        assertTrue(
+            quotes.stream()
+                    .anyMatch(q ->
+                            q.getProvider().equals("PremiumCover")));
     }
 
     @Test
