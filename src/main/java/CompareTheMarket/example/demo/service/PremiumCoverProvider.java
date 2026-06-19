@@ -15,13 +15,20 @@ public class PremiumCoverProvider implements QuoteProvider {
     @Async
     public CompletableFuture<Quote> generateQuote(QuoteRequest request) {
 
-        double price =
-            600 +
-            (request.getVehicleValue() * 0.02) -
-            (request.getClaims() * 10);
+        double price = generatePrice(request.getVehicleValue(), request.getClaims());
 
         Quote quote = new Quote("PremiumCover", price, 200);
 
         return CompletableFuture.completedFuture(quote);
+    }
+
+    private double generatePrice(double vehicleValue, double claims) {
+
+        double price =
+            600 +
+            (vehicleValue * 0.02) -
+            (claims * 10);
+
+        return price;
     }
 }

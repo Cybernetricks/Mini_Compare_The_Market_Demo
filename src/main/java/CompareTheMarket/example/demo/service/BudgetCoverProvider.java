@@ -15,13 +15,20 @@ public class BudgetCoverProvider implements QuoteProvider {
     @Async
     public CompletableFuture<Quote> generateQuote(QuoteRequest request) {
 
-        double price =
-            400 +
-            (request.getVehicleValue() * 0.01) -
-            (request.getClaims() * 100);
+        double price = generatePrice(request.getVehicleValue(), request.getClaims());
 
         Quote quote = new Quote("BudgetCover", price, 250);
 
         return CompletableFuture.completedFuture(quote);
+    }
+
+    private double generatePrice(double vehicleValue, double claims) {
+
+        double price =
+            400 +
+            (vehicleValue * 0.01) -
+            (claims * 100);
+
+        return price;
     }
 }
